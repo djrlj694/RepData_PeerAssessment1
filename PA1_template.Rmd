@@ -61,7 +61,7 @@ df.intervalmean[which.max(y), ]$interval
 
 ## Imputing missing values
 
-### 1. Calculate and report the total number of missing values in the dataset (i.e., the total number of rows with `NA`s).
+##### 1. Calculate and report the total number of missing values in the dataset (i.e., the total number of rows with `NA`s).
 
 sum(is.na(df.source$steps))
 
