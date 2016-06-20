@@ -63,11 +63,13 @@ df.intervalmean[which.max(y), ]$interval
 
 ##### 1. Calculate and report the total number of missing values in the dataset (i.e., the total number of rows with `NA`s).
 
+```{r echo=TRUE}
 sum(is.na(df.source$steps))
+```
 
 ##### 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
-As a compromise between the 2 imputation strategies suggested by the author, let's substitute each missing value with its mean daily step count or its mean interval (5-min) step count, whichever value is the smallest.
+As a compromise between the 2 imputation strategies suggested by the author, let's substitute each missing value with its mean daily step count or its mean interval (5-min) step count, whichever value is the smallest.  Merge summary data frames `df.intervalmean` and `df.dailymean` to `df.source` to create a new data frame (`df.imputed`), then apply the custom function `impute` to impute missing `step` values.
 
 ```{r echo=TRUE}
 impute <- function(x, y, z) {
